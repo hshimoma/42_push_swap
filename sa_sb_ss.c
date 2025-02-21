@@ -10,7 +10,7 @@ typedef struct s_stack
 t_stack *new_node(int value)
 {
 	t_stack *node;
-	
+
 	node = (t_stack *)malloc(sizeof(t_stack));
 	if (node == NULL)
 		return (NULL);
