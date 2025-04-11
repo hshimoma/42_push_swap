@@ -5,10 +5,10 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
 #実行ファイル名
-NAME = push_swap.c
+NAME = push_swap
 
 #コンパイル対象のソースコード
-SRCS = 
+SRCS = push_swap.c
 
 #オブジェクトファイル名
 OBJS = $(SRCS:.c=.o)
