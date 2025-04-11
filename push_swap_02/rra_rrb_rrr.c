@@ -2,19 +2,19 @@
 
 void reverse_rotate(t_stack *stack)
 {
-    t_node *prev;
+    t_node *before;
     t_node *last;
 
     if (stack == NULL || stack->top == NULL || stack->top->next == NULL)
         return ;
-    prev = NULL;
+    before = NULL;
     last = stack->top;
     while (last->next)
     {
-        prev = last;
+        before = last;
         last = last->next;
     }
-    prev->next = NULL;
+    before->next = NULL;
     last->next = stack->top;
     stack->top = last;
 }

@@ -2,20 +2,20 @@
 
 void reverse_rotate(t_stack *stack) //スタックを逆回転させる関数
 {
-    t_node *prev; //前のノードを指すポインタ
+    t_node *before; //前のノードを指すポインタ
     t_node *last; //最後のノードを指すポインタ
 
     if (stack == NULL || stack->top == NULL || stack->top->next == NULL)
         return ;
-    prev = NULL; //最初の前のノードはNULL
+    before = NULL; //最初の前のノードはNULL
     last = stack->top; //lastをスタックのトップに設定
     while (last->next) //スタックの最後のノードを見つける
     {
-        prev = last; //prevをlastに更新
+        before = last; //beforをlastに更新
         last = last->next; //lastを次のノードに移動
     }
     //最後のノードをスタックのトップに移動させる
-    prev->next = NULL; //prevの次をNULLにして最後のノードを切り離す
+    before->next = NULL; //prevの次をNULLにして最後のノードを切り離す
     last->next = stack->top; //lastの次を元のトップに設定
     stack->top = last; //スタックのトップをlastに更新
 }
