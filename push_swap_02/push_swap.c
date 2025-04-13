@@ -15,34 +15,34 @@ void error(void)
 	exit(EXIT_FAILURE);
 }
 
-// int ft_atoi(const char *str)
-// {
-// 	long result;
-// 	int sign;
+int ft_atoi(const char *str)
+{
+	long result;
+	int sign;
 
-// 	result = 0;
-// 	sign = 1;
-// 	while ((*str >= 9 && *str <= 13) || *str == ' ')
-// 		str++;
-// 	if (*str == '-' || *str == '+')
-// 	{
-// 		if (*str == '-')
-// 			sign = -1;
-// 		str++;
-// 	}
-// 	if (*str == '\0')
-// 		error();
-// 	while (*str != '\0')
-// 	{
-// 		if (*str < '0' || *str > '9')
-// 			error();
-// 		result = result * 10 + (*str - '0');
-// 		if (result * sign > 2147483647 || result * sign < -2147483648)
-// 			error();
-// 		str++;
-// 	}
-// 	return ((int)(result * sign));
-// }
+	result = 0;
+	sign = 1;
+	while ((*str >= 9 && *str <= 13) || *str == ' ')
+		str++;
+	if (*str == '-' || *str == '+')
+	{
+		if (*str == '-')
+			sign = -1;
+		str++;
+	}
+	if (*str == '\0')
+		error();
+	while (*str != '\0')
+	{
+		if (*str < '0' || *str > '9')
+			error();
+		result = result * 10 + (*str - '0');
+		if (result * sign > 2147483647 || result * sign < -2147483648)
+			error();
+		str++;
+	}
+	return ((int)(result * sign));
+}
 
 t_node *new_node(int value)
 {
