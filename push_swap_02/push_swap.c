@@ -224,7 +224,7 @@ void radix_sort(t_node **a, t_node **b)
 				pb(a, b);
 			j++;
 		}
-		while (*b)
+		while (*b != NULL)
 			pa(a, b);
 		i++;
 	}
