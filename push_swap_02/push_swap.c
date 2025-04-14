@@ -74,7 +74,9 @@ void add_node(t_node **stack, t_node *node)
 
 int stack_size(t_node *stack)
 {
-	int count = 0;
+	int count;
+
+	count = 0;
 	while (stack != NULL)
 	{
 		count++;
@@ -166,6 +168,7 @@ void pb(t_node **a, t_node **b)
 	temp = *a;
 	*a = (*a)->next;
 	temp->next = *b;
+	*b = temp;
 	write (1, "pb\n", 3);
 }
 
@@ -230,6 +233,20 @@ void radix_sort(t_node **a, t_node **b)
 	}
 }
 
+int sort_check(int *arr, int size)
+{
+	int i;
+
+	i = 0;
+	while (i < size - 1)
+	{
+		if (arr[i] > arr[i + 1])
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
 int main(int argc, char *argv[])
 {
 	t_node *a = NULL;
@@ -250,6 +267,12 @@ int main(int argc, char *argv[])
 	}
 	size = stack_size(a);
 	arr = stack_to_array(a, size);
+	if (sort_check(arr, size))
+	{
+		free(arr);
+		free_stack(a);
+		return (0);
+	}
 	bubble_sort(arr, size);
 	i = 0;
 	while (i < size - 1)
