@@ -268,8 +268,6 @@ void sort_tow(t_node **a)
 		error();
 	if ((*a)->value > (*a)->next->value)
 		sa(a);
-	free_stack(*a);
-	exit(0);
 }
 
 void sort_three(t_node **a)
@@ -303,8 +301,6 @@ void sort_three(t_node **a)
 		ra(a);
 		sa(a);
 	}
-	free_stack(*a);
-	exit(0);
 }
 
 void sort_four(t_node **a, t_node **b)
@@ -344,8 +340,6 @@ void sort_four(t_node **a, t_node **b)
 	pb(a, b);
 	sort_three(a);
 	pa(a, b);
-	free_stack(*a);
-	exit(0);
 }
 
 void sort_five(t_node **a, t_node **b)
@@ -397,8 +391,75 @@ void sort_five(t_node **a, t_node **b)
 	sort_three(a);
 	pa(a, b);
 	pa(a, b);
-	free_stack(*a);
-	exit(0);
+}
+
+char *ft_strncpy(char *dst, const char * src, int size)
+{
+	int i;
+
+	i = 0;
+	while (i < size && src[i])
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	dst[i] = '\0';
+	return (dst);
+}
+
+char **ft_split(const char *str)
+{
+	char **arr;
+	int i;
+	int j;
+	int k;
+	int len;
+
+	i = 0;
+	len = 0;
+	while (str[i] != '\0')
+	{
+		while (str[i] != '\0' && (str[i] == ' ' || str[i] == '\t' || str[i] == '\n'))
+			i++;
+		if (str[len] != '\0')
+			len++;
+		while (str[i] != '\0' && str[i] != ' ' && str[i] != '\t' && str[i] != '\n')
+			i++;
+	}
+	arr = (char **)malloc(sizeof(char *) * (len + 1));
+	if (arr == NULL)
+		return (NULL);
+	i = 0;
+	j = 0;
+	k = 0;
+	while (str[i] != '\0')
+	{
+		while (str[i] != '\0' && (str[i] == ' ' || str[i] == '\t' || str[i] == '\n'))
+			i++;
+		j = i;
+		while (str[i] != '\0' && str[i] != ' ' && str[i] != '\t' && str[i] != '\n')
+			i++;
+		if (i != j)
+		{
+			arr[k] = (char *)malloc(sizeof(char) * (i - j + 1));
+			if (arr[k] == NULL)
+				return (NULL);
+			ft_strncpy(arr[k], &str[j], (i - j));
+			k++;
+		}
+	}
+	arr[k] = NULL;
+	return (arr);
+}
+
+void free_split(char **arr)
+{
+	int i;
+
+	i = 0;
+	while (arr[i] != NULL)
+		free(arr[i++]);
+	free(arr);
 }
 
 int main(int argc, char *argv[])
@@ -406,19 +467,21 @@ int main(int argc, char *argv[])
 	t_node *a = NULL;
 	t_node *b = NULL;
 	t_node *node;
+	char **args;
 	int size;
 	int *arr;
 	int i;
-	int first;
-	int second;
-	int third;
 
 	if (argc < 2)
 		return (0);
-	i = 1;
-	while (i < argc)
+	if (argc == 2)
+		args = ft_split(argv[1]);
+	else
+		args = &argv[1];
+	i = 0;
+	while (args[i] != NULL)
 	{
-		node = new_node(ft_atoi(argv[i]));
+		node = new_node(ft_atoi(args[i]));
 		add_node(&a, node);
 		i++;
 	}
@@ -436,6 +499,8 @@ int main(int argc, char *argv[])
 	{
 		free(arr);
 		free_stack(a);
+		if (argc == 2)
+			free_split(args);
 		return (0);
 	}
 	bubble_sort(arr, size);
@@ -450,5 +515,7 @@ int main(int argc, char *argv[])
 	free(arr);
 	radix_sort(&a, &b);
 	free_stack(a);
+	if (argc == 2)
+		free_split(args);
 	return (0);
 }
