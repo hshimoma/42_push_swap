@@ -51,3 +51,6 @@ re: fclean all
 
 #規則の追加
 .PHONY: all clean fclean re
+
+#todo
+#makeしてa.outができない、make reがエラーになる
