@@ -6,7 +6,7 @@
 /*   By: hshimoma <hshimoma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 23:51:15 by hshimoma          #+#    #+#             */
-/*   Updated: 2025/04/16 21:21:19 by hshimoma         ###   ########.fr       */
+/*   Updated: 2025/04/16 22:01:54 by hshimoma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ void	free_split(char **arr)
 	int	i;
 
 	i = 0;
-	if (!arr || !*(arr))
+	if (arr == NULL || *(arr) == NULL)
 		return ;
 	while (arr[i] != NULL)
 	{
