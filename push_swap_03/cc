@@ -1,0 +1,4 @@
+#!/bin/bash
+cc  -g -fsanitize=address push_swap.c libft.c libft_second.c min_sort.c operation_function.c push_swap_utils.c
+rm push_swap
+mv a.out push_swap
