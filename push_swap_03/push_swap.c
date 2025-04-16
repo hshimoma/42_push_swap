@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	radix_sort(t_node **a, t_node **b)
+static void	radix_sort(t_node **a, t_node **b)
 {
 	int	size;
 	int	max_bits;
@@ -41,7 +41,7 @@ void	radix_sort(t_node **a, t_node **b)
 	}
 }
 
-t_node	*initialize_stack(int argc, char *argv[], char ***args_out)
+static t_node	*initialize_stack(int argc, char *argv[], char ***args_out)
 {
 	t_node	*a;
 	t_node	*node;
@@ -64,7 +64,7 @@ t_node	*initialize_stack(int argc, char *argv[], char ***args_out)
 	return (a);
 }
 
-int	check(t_node **a, t_node **b, int size, int argc)
+static int	check(t_node **a, t_node **b, int size, int argc)
 {
 	int	*arr;
 	int	i;
@@ -81,11 +81,11 @@ int	check(t_node **a, t_node **b, int size, int argc)
 	bubble_sort(arr, size);
 	i = 0;
 	while (i < size - 1)
-    {
+	{
 		if (arr[i] == arr[i + 1])
 			error();
-        i++;
-    }
+		i++;
+	}
 	assign_index(*a, arr, size);
 	free(arr);
 	return (0);
@@ -104,9 +104,9 @@ int	main(int argc, char *argv[])
 		return (0);
 	a = initialize_stack(argc, argv, &args);
 	size = stack_size(a);
-	//Error処理(重複、複数の記号、INT型以外の数字、)
+	// Error処理(重複、複数の記号、INT型以外の数字、)
 	if (check(&a, &b, size, argc) == 1)
-		return (free_stack(a),0); //memory_leak直す
+		return (free_stack(a), 0); // memory_leak直す
 	else if (size == 2)
 		sort_two(&a);
 	else if (size == 3)
@@ -116,7 +116,7 @@ int	main(int argc, char *argv[])
 	else if (size == 5)
 		sort_five(&a, &b);
 	else
-		radix_sort(&a,&b);
+		radix_sort(&a, &b);
 	free_stack(a);
 	free_stack(b);
 	return (0);

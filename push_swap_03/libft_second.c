@@ -6,7 +6,7 @@
 /*   By: hshimoma <hshimoma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 23:51:15 by hshimoma          #+#    #+#             */
-/*   Updated: 2025/04/16 20:56:43 by hshimoma         ###   ########.fr       */
+/*   Updated: 2025/04/16 21:21:19 by hshimoma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,10 +82,10 @@ char	**ft_split(const char *str)
 
 void	free_split(char **arr)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	if(!arr || !*(arr))
+	if (!arr || !*(arr))
 		return ;
 	while (arr[i] != NULL)
 	{
@@ -93,4 +93,18 @@ void	free_split(char **arr)
 		i++;
 	}
 	free(arr);
+}
+
+int	sort_check(int *arr, int size)
+{
+	int	i;
+
+	i = 0;
+	while (i < size - 1)
+	{
+		if (arr[i] > arr[i + 1])
+			return (0);
+		i++;
+	}
+	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: hshimoma <hshimoma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 23:17:10 by hshimoma          #+#    #+#             */
-/*   Updated: 2025/04/16 20:58:42 by hshimoma         ###   ########.fr       */
+/*   Updated: 2025/04/16 21:17:03 by hshimoma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,16 +70,22 @@ void	sa(t_node **a)
 	write(1, "sa\n", 3);
 }
 
-int	sort_check(int *arr, int size)
+void	rra(t_node **a)
 {
-	int i;
+	t_node	*first;
+	t_node	*last;
+	t_node	*second_from_back;
 
-	i = 0;
-	while (i < size - 1)
+	first = *a;
+	last = *a;
+	second_from_back = NULL;
+	while (last->next)
 	{
-		if (arr[i] > arr[i + 1])
-			return (0);
-		i++;
+		second_from_back = last;
+		last = last->next;
 	}
-	return (1);
+	second_from_back->next = NULL;
+	*a = last;
+	last->next = first;
+	write(1, "rra\n", 4);
 }

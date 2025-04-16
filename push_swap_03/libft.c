@@ -6,7 +6,7 @@
 /*   By: hshimoma <hshimoma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 23:38:53 by hshimoma          #+#    #+#             */
-/*   Updated: 2025/04/16 20:59:48 by hshimoma         ###   ########.fr       */
+/*   Updated: 2025/04/16 21:13:16 by hshimoma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	add_node(t_node **stack, t_node *node)
 
 int	stack_size(t_node *stack)
 {
-	int count;
+	int	count;
 
 	count = 0;
 	while (stack != NULL)
