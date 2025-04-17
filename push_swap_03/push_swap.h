@@ -6,7 +6,7 @@
 /*   By: hshimoma <hshimoma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 21:02:51 by hshimoma          #+#    #+#             */
-/*   Updated: 2025/04/16 21:22:39 by hshimoma         ###   ########.fr       */
+/*   Updated: 2025/04/17 21:10:47 by hshimoma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdio.h>
 # include <stdlib.h>
+# include <string.h>
 # include <unistd.h>
 
 typedef struct s_node

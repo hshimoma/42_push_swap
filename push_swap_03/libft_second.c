@@ -6,7 +6,7 @@
 /*   By: hshimoma <hshimoma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 23:51:15 by hshimoma          #+#    #+#             */
-/*   Updated: 2025/04/16 22:01:54 by hshimoma         ###   ########.fr       */
+/*   Updated: 2025/04/17 21:12:31 by hshimoma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,7 @@ void	free_split(char **arr)
 		free(arr[i]);
 		i++;
 	}
+	free(arr[i]);
 	free(arr);
 }
 

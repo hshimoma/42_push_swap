@@ -6,7 +6,7 @@
 /*   By: hshimoma <hshimoma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 23:10:53 by hshimoma          #+#    #+#             */
-/*   Updated: 2025/04/16 21:16:58 by hshimoma         ###   ########.fr       */
+/*   Updated: 2025/04/17 21:16:30 by hshimoma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,19 +62,13 @@ void	sort_four(t_node **a, t_node **b)
 	}
 	if (i > 2)
 	{
-		while (i < 4)
-		{
+		while (i++ < 4)
 			rra(a);
-			i++;
-		}
 	}
 	else
 	{
-		while (i > 0)
-		{
+		while (i-- > 0)
 			ra(a);
-			i--;
-		}
 	}
 	pb(a, b);
 	sort_three(a);
@@ -96,19 +90,13 @@ void	sort_five(t_node **a, t_node **b)
 	}
 	if (i > 2)
 	{
-		while (i < 5)
-		{
+		while (i++ < 5)
 			rra(a);
-			i++;
-		}
 	}
 	else
 	{
-		while (i > 0)
-		{
+		while (i-- > 0)
 			ra(a);
-			i--;
-		}
 	}
 	pb(a, b);
 	sort_four(a, b);

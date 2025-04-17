@@ -51,7 +51,9 @@ static t_node	*initialize_stack(int argc, char *argv[], char ***args_out)
 	a = NULL;
 	i = 0;
 	if (argc == 2)
+	{
 		args = ft_split(argv[1]);
+	}
 	else
 		args = &argv[1];
 	*args_out = args;
@@ -71,11 +73,10 @@ static int	check(t_node **a, t_node **b, int size, int argc)
 
 	arr = stack_to_array(*a, size);
 	if (argc == 2)
-		return (1);
+		return (free(arr), 1);
 	if (sort_check(arr, size))
 	{
 		free(arr);
-		free_stack(*a);
 		return (1);
 	}
 	bubble_sort(arr, size);
@@ -91,6 +92,22 @@ static int	check(t_node **a, t_node **b, int size, int argc)
 	return (0);
 }
 
+void	free_args(char **args, int argc)
+{
+	int	i;
+
+	i = 0;
+	if (argc != 2)
+		return ;
+	while (args[i] != NULL)
+	{
+		free(args[i]);
+		i++;
+	}
+	free(args[i]);
+	free(args);
+}
+
 int	main(int argc, char *argv[])
 {
 	t_node	*a;
@@ -104,9 +121,8 @@ int	main(int argc, char *argv[])
 		return (0);
 	a = initialize_stack(argc, argv, &args);
 	size = stack_size(a);
-	// Error処理(重複、複数の記号、INT型以外の数字、)
 	if (check(&a, &b, size, argc) == 1)
-		return (free_stack(a), 0); // memory_leak直す
+		return (free_args(args, argc), free_stack(a), 0);
 	else if (size == 2)
 		sort_two(&a);
 	else if (size == 3)
@@ -117,7 +133,5 @@ int	main(int argc, char *argv[])
 		sort_five(&a, &b);
 	else
 		radix_sort(&a, &b);
-	free_stack(a);
-	free_stack(b);
-	return (0);
+	return (free_stack(a), free_stack(b), 0);
 }

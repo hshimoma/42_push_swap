@@ -6,7 +6,7 @@
 /*   By: hshimoma <hshimoma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 23:21:38 by hshimoma          #+#    #+#             */
-/*   Updated: 2025/04/16 20:57:51 by hshimoma         ###   ########.fr       */
+/*   Updated: 2025/04/17 21:13:03 by hshimoma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ void	free_stack(t_node *stack)
 
 	while (stack != NULL)
 	{
-		tmp = stack;
-		stack = stack->next;
-		free(tmp);
+		tmp = stack->next;
+		free(stack);
+		stack = tmp;
 	}
 }
 
