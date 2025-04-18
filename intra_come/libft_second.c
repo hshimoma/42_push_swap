@@ -6,7 +6,7 @@
 /*   By: hshimoma <hshimoma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 23:51:15 by hshimoma          #+#    #+#             */
-/*   Updated: 2025/04/18 18:57:48 by hshimoma         ###   ########.fr       */
+/*   Updated: 2025/04/19 00:10:51 by hshimoma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,8 @@ char	**ft_split(const char *str)
 	return (copy_words(str, arr));
 }
 
+//ft_splitで確保した２次元配列（文字列配列）を解放する
+//１.NULLになるまで各arr[i]をfree　２．最後にarr自体もfree
 void	free_split(char **arr)
 {
 	int	i;
@@ -96,6 +98,9 @@ void	free_split(char **arr)
 	free(arr);
 }
 
+//整数配列arrが昇順（小→大）にソートされているかチェック
+//１．arr[i]とarr[i + 1]を比較　２．１つでも「前の値>=後ろの値」があれば0（ソートされてない）
+//３．全部チェックOKなら１を返す
 int	sort_check(int *arr, int size)
 {
 	int	i;
