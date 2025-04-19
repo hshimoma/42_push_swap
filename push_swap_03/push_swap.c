@@ -66,7 +66,7 @@ static t_node	*initialize_stack(int argc, char *argv[], char ***args_out)
 	return (a);
 }
 
-static int	check(t_node **a, t_node **b, int size, int argc)
+static int	check(t_node **a, int size, int argc)
 {
 	int	*arr;
 	int	i;
@@ -121,7 +121,7 @@ int	main(int argc, char *argv[])
 		return (0);
 	a = initialize_stack(argc, argv, &args);
 	size = stack_size(a);
-	if (check(&a, &b, size, argc) == 1)
+	if (check(&a, size, argc) == 1)
 		return (free_args(args, argc), free_stack(a), 0);
 	else if (size == 2)
 		sort_two(&a);
