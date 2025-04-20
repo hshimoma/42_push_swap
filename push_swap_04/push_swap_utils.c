@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hshimoma <hshimoma@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hshimoma <hshimoma@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 23:21:38 by hshimoma          #+#    #+#             */
-/*   Updated: 2025/04/18 17:13:23 by hshimoma         ###   ########.fr       */
+/*   Updated: 2025/04/21 01:02:00 by hshimoma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	*stack_to_array(t_node *stack, int size)
 	return (arr);
 }
 
-void	compression(int *arr, int size)
+void	bubble_sort(int *arr, int size)
 {
 	int	i;
 	int	j;

@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <limits.h>
 
 static void	radix_sort(t_node **a, t_node **b)
 {
@@ -82,7 +81,7 @@ static int	check(t_node **a, int size, int argc)
 		free(arr);
 		return (1);
 	}
-	compression(arr, size);
+	bubble_sort(arr, size);
 	i = 0;
 	while (i < size - 1)
 	{

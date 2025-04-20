@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hshimoma <hshimoma@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hshimoma <hshimoma@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 21:02:51 by hshimoma          #+#    #+#             */
-/*   Updated: 2025/04/18 18:11:05 by hshimoma         ###   ########.fr       */
+/*   Updated: 2025/04/21 01:07:30 by hshimoma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>
+# include <limits.h>
 
 typedef struct s_node
 {
@@ -37,7 +38,7 @@ void				sort_five(t_node **a, t_node **b);
 void				error(void);
 void				free_stack(t_node *stack);
 int					*stack_to_array(t_node *stack, int size);
-void				compression(int *arr, int size);
+void				bubble_sort(int *arr, int size);
 void				assign_index(t_node *stack, int *arr, int size);
 long				ft_atol(const char *str);
 t_node				*new_node(int value);

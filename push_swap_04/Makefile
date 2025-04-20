@@ -2,7 +2,7 @@
 CC = cc
 
 #コンパイラオプション
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror
 
 #実行ファイル名
 NAME = push_swap
@@ -13,19 +13,8 @@ SRCS = push_swap.c libft_second.c libft.c min_sort.c operation_function.c push_s
 #オブジェクトファイル名
 OBJS = $(SRCS:.c=.o)
 
-# push_swap: push_swap.o
-# 	cc -o push_swap push_swap.o
-
-# push_swap.o: push_swap.c
-# 	cc -Wall -Wextra -Werror -c push_swap.c libft_second.c libft.c min_sort.c operation_function.c push_swap_utils.c
-
 #'make all'でmake cleanとmakeを同時に実行
 all: $(NAME)
-
-
-#.aファイル作成
-# $(NAME): $(OBJS)
-# 	ar -r $(NAME) $(OBJS)
 
 # オブジェクトファイル作成
 $(NAME): $(OBJS)
@@ -45,5 +34,3 @@ re: fclean all
 #規則の追加
 .PHONY: all clean fclean re
 
-#todo
-#makeしてa.outができない、make reがエラーになる

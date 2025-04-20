@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hshimoma <hshimoma@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hshimoma <hshimoma@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 23:38:53 by hshimoma          #+#    #+#             */
-/*   Updated: 2025/04/17 21:24:25 by hshimoma         ###   ########.fr       */
+/*   Updated: 2025/04/21 01:05:03 by hshimoma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ long	ft_atol(const char *str)
 			return (result * sign);
 		str++;
 	}
-	return ((result * sign));
+	return (result * sign);
 }
 
 t_node	*new_node(int value)
