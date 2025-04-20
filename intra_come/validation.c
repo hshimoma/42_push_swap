@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validation.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hshimoma <hshimoma@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hshimoma <hshimoma@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 18:08:15 by hshimoma          #+#    #+#             */
-/*   Updated: 2025/04/19 00:15:56 by hshimoma         ###   ########.fr       */
+/*   Updated: 2025/04/21 01:26:24 by hshimoma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ int	all_num(char **strs)
 	while (strs[i] != NULL)
 	{
 		j = 0;
+		if (strs[i][j] == '-')
+			j++;
 		while (strs[i][j] != '\0')
 		{
 			if (strs[i][j] < '0' || strs[i][j] > '9')

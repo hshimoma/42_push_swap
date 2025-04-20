@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hshimoma <hshimoma@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hshimoma <hshimoma@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 23:21:38 by hshimoma          #+#    #+#             */
-/*   Updated: 2025/04/18 20:39:56 by hshimoma         ###   ########.fr       */
+/*   Updated: 2025/04/21 01:37:59 by hshimoma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	*stack_to_array(t_node *stack, int size)
 //数字がそれくらい小さいかを見分けるために、まず並び替える必要がある
 //小さい数字ほど前の方に来るようにする。
 //バブルソートとは隣同士の数字を比べて順番がおかしかったら変換する、それを繰り返して正しい順番に並べる
-void	compression(int *arr, int size)
+void	bubble_sort(int *arr, int size)
 {
 	int	i;
 	int	j;

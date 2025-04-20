@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   libft.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hshimoma <hshimoma@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hshimoma <hshimoma@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 23:38:53 by hshimoma          #+#    #+#             */
-/*   Updated: 2025/04/18 23:59:17 by hshimoma         ###   ########.fr       */
+/*   Updated: 2025/04/21 01:28:41 by hshimoma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 //文字列（"123","-1"など）を整数に変換する関数
-//特徴：空白や+/-をスキップ。不正な文字があるとえerror()で終了。intの範囲を超えるとerror()。
-int	ft_atoi(const char *str)
+//特徴：空白や+/-をスキップ。不正な文字があるとえerror()で終了
+long	ft_atol(const char *str)
 {
 	long	result;
 	int		sign;
@@ -34,13 +34,13 @@ int	ft_atoi(const char *str)
 	while (*str != '\0')
 	{
 		if (*str < '0' || *str > '9')
-			error();
+			return (result * sign);
 		result = result * 10 + (*str - '0');
 		if (result * sign > 2147483647 || result * sign < -2147483648)
-			error();
+			return (result * sign);
 		str++;
 	}
-	return ((int)(result * sign));
+	return (result * sign);
 }
 
 //与えられた値（整数）を持つ新しいノードを（要素）を作成する

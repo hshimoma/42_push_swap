@@ -58,9 +58,7 @@ static t_node	*initialize_stack(int argc, char *argv[], char ***args_out)
 	a = NULL;
 	i = 0;
 	if (argc == 2)
-	{
 		args = ft_split(argv[1]);
-	}
 	else
 		args = &argv[1];
 	*args_out = args;
@@ -68,7 +66,9 @@ static t_node	*initialize_stack(int argc, char *argv[], char ***args_out)
 		return (NULL);
 	while (args[i] != NULL)
 	{
-		node = new_node(ft_atoi(args[i]));
+		if (ft_atol(args[i]) > INT_MAX || ft_atol(args[i]) < INT_MIN)
+			return (NULL);
+		node = new_node(ft_atol(args[i]));
 		add_node(&a, node);
 		i++;
 	}
@@ -84,19 +84,19 @@ static int	check(t_node **a, int size, int argc)
 	int	i;
 
 	arr = stack_to_array(*a, size);
-	if (argc == 2)
+	if (argc == 2 && stack_size(*a) == 0)
 		return (free(arr), 1);
 	if (sort_check(arr, size))
 	{
 		free(arr);
 		return (1);
 	}
-	compression(arr, size);
+	bubble_sort(arr, size);
 	i = 0;
 	while (i < size - 1)
 	{
 		if (arr[i] == arr[i + 1])
-			error();
+			return (free(arr), error(), 1);
 		i++;
 	}
 	assign_index(*a, arr, size);
@@ -135,7 +135,7 @@ int	main(int argc, char *argv[])
 	a = initialize_stack(argc, argv, &args);
 	//コマンドライン引数から数字を読み込んで、スタックに変換
 	if (a == NULL) //無効な入力ならエラーを出して終了
-		return (write(1, "Error\n", 6), free_split(args), 1);
+		return (error(), free_args(args, argc), 1);
 	if (check(&a, stack_size(a), argc) == 1) //同じ値がないか、ソート済みかをチェック
 		return (free_args(args, argc), free_stack(a), 0);
 	else if (stack_size(a) == 2) //要素数が少なければ、専用のソートを関数を使う
@@ -148,5 +148,5 @@ int	main(int argc, char *argv[])
 		sort_five(&a, &b);
 	else
 		radix_sort(&a, &b); //要素数が多ければ、radix_sortを使って並べる
-	return (free_stack(a), free_stack(b), 0); //ソートが終わったら、メモリを開放してプログラム終了
+	return (free_args(args, argc), free_stack(a), free_stack(b), 0); //ソートが終わったら、メモリを開放してプログラム終了
 }

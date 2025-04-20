@@ -2,7 +2,7 @@
 CC = cc
 
 #コンパイラオプション
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror
 
 #実行ファイル名
 NAME = push_swap
@@ -45,5 +45,3 @@ re: fclean all
 #規則の追加
 .PHONY: all clean fclean re
 
-#todo
-#makeしてa.outができない、make reがエラーになる
