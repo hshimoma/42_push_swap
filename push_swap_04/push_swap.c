@@ -87,7 +87,7 @@ static int	check(t_node **a, int size, int argc)
 	while (i < size - 1)
 	{
 		if (arr[i] == arr[i + 1])
-			error();
+			return (free(arr), error(), 1);
 		i++;
 	}
 	assign_index(*a, arr, size);
@@ -123,7 +123,7 @@ int	main(int argc, char *argv[])
 		return (0);
 	a = initialize_stack(argc, argv, &args);
 	if (a == NULL)
-		return (error(), free_split(args), 1);
+		return (error(), free_args(args, argc), 1);
 	if (check(&a, stack_size(a), argc) == 1)
 		return (free_args(args, argc), free_stack(a), 0);
 	else if (stack_size(a) == 2)
